@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esports SR Hub</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Esports SR Hub</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#" id="homeLink">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="matchesLink">Matches</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="leaderboardLink">Leaderboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="profileLink">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" id="logoutLink">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="homeSection" class="container mt-5">
+        <div class="hero text-center">
+            <h1>Welcome to Esports SR Hub</h1>
+            <p class="lead">Compete, track your Skill Rating, and climb the ranks to become a Legend!</p>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="feature-card card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Join Matches</h5>
+                        <p class="card-text">Create or join competitive matches to test your skills and earn SR.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Track Progress</h5>
+                        <p class="card-text">Monitor your SR and rank badge in your personal profile.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Compete</h5>
+                        <p class="card-text">Check the leaderboard to see where you stand among the best players.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <h2>Leaderboard</h2>
+            <table class="leaderboard-table table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>SR</th>
+                        <th>Rank Badge</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="loginSection" class="container mt-5">
+        <div class="login-card card mx-auto">
+            <div class="card-body">
+                <h2 class="text-center">Login / Register</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" class="form-control" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <hr>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerUsername">Username</label>
+                        <input type="text" class="form-control" id="registerUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Emai</label>
+                        <input type="email" class="form-control" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" class="form-control" id="registerPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-accent btn-block">Register</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="profileSection" class="container mt-5">
+        <h2>User Profile</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="rank-card card">
+                    <div class="card-body text-center">
+                        <img class="rank-image" src="https://via.placeholder.com/140?text=Rank+Badge" alt="Rank Badge">
+                        <p class="rank-text mt-3">Rank: Loading...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="profile-card card">
+                    <div class="card-body">
+                        <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+                        <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                        <p><strong>Games Played:</strong> <span id="profileGamesPlayed"></span></p>
+                        <p><strong>Victories:</strong> <span id="profileVictories"></span></p>
+                        <p><strong>Losses:</strong> <span id="profileLosses"></span></p>
+                        <p><strong>SR:</strong> <span id="profileSr"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="matchesSection" class="container mt-5">
+        <h2>Matches</h2>
+        <button id="createMatchBtn" class="btn btn-success mb-3">Create Match</button>
+        <div class="list-group" id="matchesList"></div>
+    </section>
+
+    <section id="leaderboardSection" class="container mt-5">
+        <h2>Leaderboard</h2>
+        <table class="leaderboard-table table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>SR</th>
+                    <th>Rank Badge</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody"></tbody>
+        </table>
+    </section>
+
+    <!-- Report Modal -->
+    <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reportModalLabel">Report Match</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="reportForm">
+                        <div class="form-group">
+                            <label for="matchId">Match ID</label>
+                            <input type="text" class="form-control" id="matchId" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="winnerId">Winner User ID</label>
+                            <input type="text" class="form-control" id="winnerId" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="roundsWon">Rounds Won (Best of 5)</label>
+                            <input type="number" class="form-control" id="roundsWon" min="3" max="5" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" form="reportForm" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
