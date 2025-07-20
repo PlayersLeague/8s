@@ -107,11 +107,14 @@ body {
   border-color: #138496;
 }
 .rank-badge {
-  font-weight: 500;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.9em;
+  /* Use a solid gold color for the badge */
+  background-color: #ffd700;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: inline-block;
 }
+
 .rank-rookie { background-color: #6c757d; color: #fff; }
 .rank-amateur { background-color: #ffd700; color: #333; }
 .rank-allstar { background-color: #28a745; color: #fff; }
