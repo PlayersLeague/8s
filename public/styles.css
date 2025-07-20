@@ -27,7 +27,7 @@ body {
   color: #fff;
 }
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400?text=Esports+Banner');
+  background-image: url("https://via.placeholder.com/1200x400?text=Esports+Banner");
   background-size: cover;
   background-position: center;
   padding: 60px 0;
