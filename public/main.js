@@ -62,10 +62,21 @@ const updateUI = async () => {
 // API helper with auth
 const apiFetch = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token');
-  const headers = { 'Content-Type': 'application/json' };
+  // Make sure headers lives _inside_ options, not alongside it
+  const headers = { 'Content-Type': 'application/json', ...(options.headers || {}) };
   if (token) headers.Authorization = `Bearer ${token}`;
-  const res = await fetch(`${API_BASE}${endpoint}`, { ...options, headers });
-  if (!res.ok) throw new Error((await res.json()).message || 'API error');
+
+  // 2. Spread options here so method/body actually get applied
+  const res = await fetch(`${API_BASE}${endpoint}`, { 
+    ...options,
+    headers
+  });
+
+  if (!res.ok) {
+    // pull the real error message
+    const err = await res.json();
+    throw new Error(err.message || 'API error');
+  }
   return res.json();
 };
 
