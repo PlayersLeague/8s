@@ -1,4 +1,4 @@
-const API_BASE = '/api';
+const API_BASE = 'http://localhost:4000/api';
 const socket = io();
 
 const sections = {
