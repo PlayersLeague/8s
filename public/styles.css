@@ -27,9 +27,7 @@ body {
   color: #fff;
 }
 .hero {
-  background-image: url("https://via.placeholder.com/1200x400?text=Esports+Banner");
-  background-size: cover;
-  background-position: center;
+  background-color: #1e1e1e;
   padding: 60px 0;
   color: #fff;
   border-radius: 10px;
