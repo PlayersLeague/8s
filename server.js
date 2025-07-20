@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const http = require('http');
 const { Server } = require('socket.io');
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 const User = require('./models/User');
 const Match = require('./models/Match');
