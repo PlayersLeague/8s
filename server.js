@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const http = require('http');
 const { Server } = require('socket.io');
+const PORT = process.env.PORT || 4000;
 
 const User = require('./models/User');
 const Match = require('./models/Match');
@@ -49,6 +50,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 // … Leaderboard route …
 
 // 3️⃣ Listen on port 3000 using the shared HTTP server
-httpServer.listen(3000, () => {
-  console.log('Server running on port 3000');
+
+httpServer.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
